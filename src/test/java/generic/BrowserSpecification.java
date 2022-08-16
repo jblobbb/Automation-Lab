@@ -5,12 +5,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BrowserSpecification {
     
-    private void setChomeDriverProperty() {
+    private void setProperties() {
      System.setProperty("webdriver.chrome.driver",  System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver.exe");
     }
 
     public static WebDriver getDriver() {
-        setChomeDriverProperty()
+        setProperties()
         return new ChromeDriver();;
     }
 }
