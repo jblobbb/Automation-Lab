@@ -10,6 +10,8 @@ public class HerokuappPage extends PageMethod {
 
     private static final By CHECKBOX_ONE = By.cssSelector("#checkboxes > input[type=checkbox]:nth-child(1)");
     private static final By CHECKBOX_TWO = By.cssSelector("#checkboxes > input[type=checkbox]:nth-child(3)");
+    private static final By BUTTON_ADD_ELEMENT = By.cssSelector("#content > div > button");
+    private static final By BUTTON_DELETE = By.cssSelector("#elements > button");
 
 
     public static void openHerokuappPage() {
@@ -31,5 +33,17 @@ public class HerokuappPage extends PageMethod {
 
     public static WebElement checkBoxIsTicked() {
         return findElement(CHECKBOX_ONE);
+    }
+
+    public static void clickAddElement() {
+        findElementAndClick(BUTTON_ADD_ELEMENT);
+    }
+
+    public static boolean isDeleteButtonDisplayed() {
+        return elementIsDisplayed(BUTTON_DELETE);
+    }
+
+    public static void clickDeleteButton() {
+        findElementAndClick(BUTTON_DELETE);
     }
 }

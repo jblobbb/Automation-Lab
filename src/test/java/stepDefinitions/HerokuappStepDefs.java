@@ -32,4 +32,18 @@ public class HerokuappStepDefs {
         boolean bool = Boolean.parseBoolean(attribute);
         Assert.assertTrue(bool);
     }
+
+    @When("user clicks on Add Element and user confirms the Delete button appears")
+    public void userClicksOnAddElementAndUserConfirmsTheDeleteButtonAppears() {
+        HerokuappPage.clickAddElement();
+        boolean result = HerokuappPage.isDeleteButtonDisplayed();
+        Assert.assertTrue(result);
+    }
+
+    @Then("user clicks on Delete button and user confirms that Delete button is removed")
+    public void userClicksOnDeleteButtonAndUserConfirmsThatDeleteButtonIsRemoved() {
+        HerokuappPage.clickDeleteButton();
+        boolean result = HerokuappPage.isDeleteButtonDisplayed();
+        Assert.assertFalse(result);
+    }
 }
