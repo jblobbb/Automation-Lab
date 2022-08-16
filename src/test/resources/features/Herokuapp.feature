@@ -14,3 +14,9 @@ Feature: Herokuapp Tests
     Given user selects "Add/Remove Elements" exercise
     When user clicks on Add Element and user confirms the Delete button appears
     Then user clicks on Delete button and user confirms that Delete button is removed
+
+
+  Scenario: Dropdown functionality
+    Given user selects "Dropdown" exercise
+    When user selects option 1
+    Then user verifies option 1 is selected

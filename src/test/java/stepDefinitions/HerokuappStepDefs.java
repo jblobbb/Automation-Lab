@@ -46,4 +46,14 @@ public class HerokuappStepDefs {
         boolean result = HerokuappPage.isDeleteButtonDisplayed();
         Assert.assertFalse(result);
     }
+
+    @When("user selects option {int}")
+    public void userSelectsOption(int index) {
+        HerokuappPage.selectOption(index);
+    }
+
+    @Then("user verifies option {int} is selected")
+    public void userVerifiesOptionIsSelected(int index) {
+        HerokuappPage.checkOptionSelected(index);
+    }
 }

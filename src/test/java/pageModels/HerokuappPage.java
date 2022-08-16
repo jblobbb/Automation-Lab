@@ -1,8 +1,10 @@
 package pageModels;
 
 import generic.PageMethod;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import static generic.CommonSteps.navigateToPage;
 
@@ -45,5 +47,17 @@ public class HerokuappPage extends PageMethod {
 
     public static void clickDeleteButton() {
         findElementAndClick(BUTTON_DELETE);
+    }
+
+    public static void selectOption(int index) {
+        WebElement select = findElement(By.id("dropdown"));
+        Select dropdown = new Select(select);
+        dropdown.selectByIndex(index);
+    }
+
+    public static void checkOptionSelected(int index) {
+        WebElement option = findElement(By.xpath("//select/option[@value='" + index + "']"));
+        boolean selected = Boolean.parseBoolean(option.getAttribute("selected"));
+        Assert.assertTrue(selected);
     }
 }
