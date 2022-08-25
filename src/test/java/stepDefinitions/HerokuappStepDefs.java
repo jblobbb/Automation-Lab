@@ -1,11 +1,14 @@
 package stepDefinitions;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import pageModels.HerokuappPage;
+
+import static generic.BrowserSpecification.driver;
 
 public class HerokuappStepDefs {
 
@@ -55,5 +58,11 @@ public class HerokuappStepDefs {
     @Then("user verifies option {int} is selected")
     public void userVerifiesOptionIsSelected(int index) {
         HerokuappPage.checkOptionSelected(index);
+    }
+
+    @After
+    public static void end() {
+        driver.quit();
+        driver = null;
     }
 }
